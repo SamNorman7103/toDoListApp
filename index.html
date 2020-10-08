@@ -1,34 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="vieport" content="width-device-width, initial-scale=1.0">
-        <title>To Do List</title>
-    </head>
-    <body>
-        <div id="my-lists">My Lists
-            <div id="list-of-lists"></div>
-            <div id="create-new-list">
-                <form action="">
-                    <input type="text" id="new-list-name" placeholder="new list name" aria-label="new list name">
-                    <button class="btn new-list-button">+</button>
-                </form>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="vieport" content="width-device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container my-5 mx-5 p-5 bg-dark text-white">
+    <!--Lists body START-->
+    <div id="content" class="row">
+      <div id="lists-body" class="col-lg-6">
+        My Lists
+        <ul id="list-of-lists" class="list-unstyled py-3">
+            <li class="px-2 py-3"><input type="radio" id="list1" value="list1" name="list1"><label class="px-2 py-1" for="list1">List1</label></li>
+            <li class="px-2 py-3"><input type="radio" id="list2" value="list2" name="list2"><label class="px-2 py-1" for="list2">List2</label></li>
+            <li class="px-2 py-3"><input type="radio" id="list3" value="list3" name="list3"><label class="px-2 py-1" for="list3">List3</label></li>
+        </ul>
+        <div id="create-new-list">
+          <form action="">
+            <input
+              type="text"
+              id="new-list-name"
+              placeholder="new list name"
+              aria-label="new list name"
+            />
+            <button class="btn new-list-button">+</button>
+          </form>
         </div>
-        <div id="select-list-body">
+      </div>
+      <!--Lists body END-->
+
+      <!--List body START-->
+      <div id="select-list-body" class="col-lg-6 d-flex-column justify-content-center">
+        <div id="selected-list"; class="border w-75">
+          <div id="list-header" class="d-flex justify-content-between border p-3">
             <div id="list-name">List Name</div>
-            <ul id="tasks-list">
-                <li>Task 1</li>
-                <li>Task 2</li>
-                <li>Task 3</li>
-            </ul>
-            <div id="add-new-task">enter a new task</div>
-            <div id="list-options">
-                <ul>
-                    <li>Clear completed tasks</li>
-                    <li>Delete list</li>
-                </ul>
-            </div>
+            <div id="task-remaining-count">Tasks Remaining:</div>
+          </div>
+          <ul id="tasks-list" class="list-unstyled p-3">
+            <li class="px-2 py-3"><input type="radio" id="task1" value="task1" name="task1"><label for="task1">Task1</label></li>
+            <li class="px-2 py-3"><input type="radio" id="task2" value="task2" name="task2"><label for="task2">Task2</label></li>
+            <li class="px-2 py-3"><input type="radio" id="task3" value="task3" name="task3"><label for="task3">Task3</label></li>
+          </ul>
+          <div id="add-new-task">
+            <form action="">
+                <button class="btn new-list-button">+</button>
+                <input
+                  type="text"
+                  id="new-task-name"
+                  placeholder="enter new task"
+                  aria-label="enter new task"
+                />
+              </form>
+          </div>
         </div>
-    </body>
+        <div id="list-options" class="d-flex justify-content-around w-75 p-3">
+            <div>Clear completed tasks</div>
+            <div>Delete list</div>
+        </div>
+      </div>
+    </div>
+    <!--List body END-->
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
