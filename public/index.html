@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="stylesheets/styles.css" />
+    <script defer src="../js/main.js"></script>
   </head>
   <body class="container my-5 mx-5 p-5">
     <!--Lists body START-->
@@ -20,16 +21,17 @@
         class="col-lg-5"
       >
         My Lists
-        <ul id="list-of-lists" class="mb-0 pr-3 w-75 border border-left-0 border-top-0 border-bottom-0">
-          <li class="active-list px-2 list">List1</li>
+        <ul id="list-of-lists" data-lists class="mb-0 pr-3 w-75 border border-left-0 border-top-0 border-bottom-0">
+          <!-- <li class="active-list px-2 list">List1</li>
           <li class="px-2 list">List2</li>
-          <li class="px-2 list">List3</li>
+          <li class="px-2 list">List3</li> -->
         </ul>
         <div id="create-new-list" class = "w-75 border border-left-0 border-top-0 border-bottom-0">
-          <form action="">
+          <form action="" data-new-list-form>
             <input
               type="text"
               id="new-list-name"
+              data-new-list-input
               placeholder="new list name"
               aria-label="new list name"
             />
