@@ -10,18 +10,22 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="stylesheets/styles.css" />
   </head>
   <body class="container my-5 mx-5 p-5 bg-dark text-white">
     <!--Lists body START-->
     <div id="content" class="row">
-      <div id="lists-body" class="col-lg-6">
+      <div
+        id="lists-body"
+        class="col-lg-5"
+      >
         My Lists
-        <ul id="list-of-lists" class="list-unstyled py-3">
-            <li class="px-2 py-3"><input type="radio" id="list1" value="list1" name="list1"><label class="px-2 py-1" for="list1">List1</label></li>
-            <li class="px-2 py-3"><input type="radio" id="list2" value="list2" name="list2"><label class="px-2 py-1" for="list2">List2</label></li>
-            <li class="px-2 py-3"><input type="radio" id="list3" value="list3" name="list3"><label class="px-2 py-1" for="list3">List3</label></li>
+        <ul id="list-of-lists" class="mb-0 pr-3 w-75 border border-left-0 border-top-0 border-bottom-0">
+          <li class="active-list px-2 list">List1</li>
+          <li class="px-2 list">List2</li>
+          <li class="px-2 list">List3</li>
         </ul>
-        <div id="create-new-list">
+        <div id="create-new-list" class = "pt-3 w-75 border border-left-0 border-top-0 border-bottom-0">
           <form action="">
             <input
               type="text"
@@ -36,32 +40,68 @@
       <!--Lists body END-->
 
       <!--List body START-->
-      <div id="select-list-body" class="col-lg-6 d-flex-column justify-content-center">
-        <div id="selected-list"; class="border w-75">
-          <div id="list-header" class="d-flex justify-content-between border p-3">
+      <div
+        id="selected-list-body"
+        class="col-lg-7 d-flex-column justify-content-center"
+      >
+        <div id="selected-list" ; class="border w-75">
+          <div
+            id="list-header"
+            class="d-flex justify-content-between border p-3"
+          >
             <div id="list-name">List Name</div>
             <div id="task-remaining-count">Tasks Remaining:</div>
           </div>
           <ul id="tasks-list" class="list-unstyled p-3">
-            <li class="px-2 py-3"><input type="radio" id="task1" value="task1" name="task1"><label for="task1">Task1</label></li>
-            <li class="px-2 py-3"><input type="radio" id="task2" value="task2" name="task2"><label for="task2">Task2</label></li>
-            <li class="px-2 py-3"><input type="radio" id="task3" value="task3" name="task3"><label for="task3">Task3</label></li>
+            <li class="px-2 py-3 task">
+              <input
+                for="task1"
+                type="checkbox"
+                id="task1"
+                value="task1"
+                name="task1"
+              /><label for="task1"
+                ><span class="custom-checkbox"></span>Task1</label
+              >
+            </li>
+            <li class="px-2 py-3 task">
+              <input
+                for="task2"
+                type="checkbox"
+                id="task2"
+                value="task2"
+                name="task2"
+              /><label for="task2"
+                ><span class="custom-checkbox"></span>Task2</label
+              >
+            </li>
+            <li class="px-2 py-3 task">
+              <input
+                for="task3"
+                type="checkbox"
+                id="task3"
+                value="task3"
+                name="task3"
+              /><label for="task3"
+                ><span class="custom-checkbox"></span>Task3</label
+              >
+            </li>
           </ul>
           <div id="add-new-task">
             <form action="">
-                <button class="btn new-list-button">+</button>
-                <input
-                  type="text"
-                  id="new-task-name"
-                  placeholder="enter new task"
-                  aria-label="enter new task"
-                />
-              </form>
+              <button class="btn new-task-button">+</button>
+              <input
+                type="text"
+                id="new-task-name"
+                placeholder="enter new task"
+                aria-label="enter new task"
+              />
+            </form>
           </div>
         </div>
         <div id="list-options" class="d-flex justify-content-around w-75 p-3">
-            <div>Clear completed tasks</div>
-            <div>Delete list</div>
+          <div class="option">Clear completed tasks</div>
+          <div class="option">Delete list</div>
         </div>
       </div>
     </div>

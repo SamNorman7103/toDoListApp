@@ -1,0 +1,19 @@
+{
+  "name": "todolistapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass" : "sass --watch src/styles:public/stylesheets"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamNorman7103/toDoListApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamNorman7103/toDoListApp/issues"
+  },
+  "homepage": "https://github.com/SamNorman7103/toDoListApp#readme"
+}
