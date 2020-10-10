@@ -4,6 +4,7 @@
   --clr-underline: rgba(0, 0, 0, 0.315);
   --clr-grey: #cbcaca;
   --clr-light: white;
+  --clr-warning: rgb(255, 0, 0);
 }
 body {
   background-color: var(--clr-primary);
@@ -31,8 +32,11 @@ body {
     }
   }
 }
+#create-new-list, #add-new-task{
+    padding: 0.25em;
+}
+
 #create-new-list {
-  padding: 0;
   form {
     display: inline-flex;
     align-items: center;
@@ -113,4 +117,13 @@ body {
     color: var(--clr-primary);
     font-size: 22px;
   }
+}
+
+.option{
+    background-color: transparent;
+    border: none;
+    transition: color 200ms;
+}
+.option:hover{
+    color: var(--clr-warning);
 }
