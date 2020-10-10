@@ -1,6 +1,7 @@
 const listsContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form]');
 const newListInput = document.querySelector('[data-new-list-input]');
+const deleteListButton = document.querySelector('[data-delete-list-button]');
 const LOCAL_STORAGE_LIST_KEY = 'task.lists';
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
 
@@ -24,6 +25,12 @@ newListForm.addEventListener('submit', e => {
     saveAndRender();
 })
 
+deleteListButton.addEventListener('click', e => {
+    lists = lists.filter(list => list.id !== selectedListId)
+    selectedListId = null;
+    saveAndRender();
+})
+
 function createList(name){
     return { id: Date.now().toString(), name: name, tasks: [] };
 }
@@ -35,6 +42,7 @@ function saveAndRender(){
 
 function save(){
     localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists));
+    localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY,selectedListId);
 }
 
 function render() {
