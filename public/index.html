@@ -12,7 +12,7 @@
     />
     <link rel="stylesheet" href="stylesheets/styles.css" />
   </head>
-  <body class="container my-5 mx-5 p-5 bg-dark text-white">
+  <body class="container my-5 mx-5 p-5">
     <!--Lists body START-->
     <div id="content" class="row">
       <div
@@ -25,7 +25,7 @@
           <li class="px-2 list">List2</li>
           <li class="px-2 list">List3</li>
         </ul>
-        <div id="create-new-list" class = "pt-3 w-75 border border-left-0 border-top-0 border-bottom-0">
+        <div id="create-new-list" class = "w-75 border border-left-0 border-top-0 border-bottom-0">
           <form action="">
             <input
               type="text"
@@ -44,7 +44,7 @@
         id="selected-list-body"
         class="col-lg-7 d-flex-column justify-content-center"
       >
-        <div id="selected-list" ; class="border w-75">
+        <div id="selected-list" ; class="w-75">
           <div
             id="list-header"
             class="d-flex justify-content-between border p-3"
@@ -52,7 +52,7 @@
             <div id="list-name">List Name</div>
             <div id="task-remaining-count">Tasks Remaining:</div>
           </div>
-          <ul id="tasks-list" class="list-unstyled p-3">
+          <ul id="tasks-list" class="list-unstyled m-0">
             <li class="px-2 py-3 task">
               <input
                 for="task1"
@@ -87,9 +87,9 @@
               >
             </li>
           </ul>
-          <div id="add-new-task">
+          <div id="add-new-task" class="px-2 py-3">
             <form action="">
-              <button class="btn new-task-button">+</button>
+              <button class="btn" id="new-task-button">+</button>
               <input
                 type="text"
                 id="new-task-name"

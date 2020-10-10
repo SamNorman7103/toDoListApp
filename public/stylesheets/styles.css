@@ -1,6 +1,19 @@
-#selected-list {
-  background-color: #cbcaca;
-  color: black;
+:root {
+  --clr-primary: rgb(47, 110, 219);
+  --clr-dark: black;
+  --clr-underline: rgba(0, 0, 0, 0.315);
+  --clr-grey: #cbcaca;
+  --clr-light: white;
+}
+
+body {
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+}
+
+#list-header {
+  background-color: var(--clr-grey);
+  color: var(--clr-dark);
 }
 
 [type=checkbox] {
@@ -9,67 +22,64 @@
   position: relative;
 }
 
-.list {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.187);
+#list-of-lists .list {
+  border-bottom: 2px solid var(--clr-underline);
+  list-style: circle;
+  padding: 4px;
 }
-.list label {
+#list-of-lists .list label {
   position: relative;
+  align-items: center;
+}
+
+#create-new-list {
+  padding: 0;
+}
+#create-new-list form {
   display: inline-flex;
   align-items: center;
 }
-.list :hover .custom-checkbox, .list [type=checkbox]:focus + label .custom-checkbox {
-  transform: scale(1.3);
-  border-color: white;
-}
-.list .custom-checkbox {
-  --size: .75em;
-  display: inline-block;
-  margin-right: var(--size);
-  width: var(--size);
-  height: var(--size);
-  cursor: pointer;
-  border: 2px solid black;
-  border-radius: 50%;
-  transform: scale(1);
-  transition: transfrom 300ms ease-in-out;
-}
-.list [type=checkbox]:checked + label .custom-checkbox {
-  background-color: white;
-  border-color: white;
-  box-shadow: inset 0 0 0px 2px rgba(0, 0, 0, 0.345);
+#create-new-list form .btn {
+  color: var(--clr-light);
+  font-size: 22px;
 }
 
 .task {
   position: relative;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.187);
+  border-bottom: 2px solid var(--clr-underline);
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
 }
 .task label {
   position: relative;
   display: inline-flex;
   align-items: center;
+  margin: 0;
 }
-.task :hover .custom-checkbox, .task [type=checkbox]:focus + label .custom-checkbox {
+.task :hover .custom-checkbox,
+.task [type=checkbox]:focus + label .custom-checkbox {
   transform: scale(1.3);
-  border-color: white;
+  border-color: var(--clr-light);
+  box-shadow: 0 0 0px 1px var(--clr-primary);
 }
 .task .custom-checkbox {
-  --size: .75em;
+  --size: 0.75em;
   display: inline-block;
   margin-right: var(--size);
   width: var(--size);
   height: var(--size);
   cursor: pointer;
-  border: 2px solid black;
+  border: 2px solid var(--clr-dark);
   border-radius: 50%;
   transform: scale(1);
-  transition: transfrom 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
 }
 .task [type=checkbox]:checked + label {
   opacity: 0.5;
 }
 .task [type=checkbox]:checked + label .custom-checkbox {
-  background-color: white;
-  border-color: white;
+  background-color: var(--clr-primary);
+  border-color: var(--clr-primary);
   box-shadow: inset 0 0 0px 2px rgba(0, 0, 0, 0.345);
 }
 .task [type=checkbox]:checked + label::after {
@@ -83,7 +93,7 @@
   right: 0;
   left: 0;
   height: 3px;
-  background-color: black;
+  background-color: var(--clr-dark);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 150ms ease-in-out;
@@ -93,8 +103,18 @@
   opacity: 0.5;
 }
 
-.selected-list {
-  border: 5px solid black;
+#selected-list {
+  border: 1px solid var(--clr-light);
+  box-shadow: 0 0 3px 1px var(--clr-dark);
+}
+
+#add-new-task {
+  background-color: var(--clr-light);
+  align-items: center;
+}
+#add-new-task .btn {
+  color: var(--clr-primary);
+  font-size: 22px;
 }
 
 /*# sourceMappingURL=styles.css.map */
