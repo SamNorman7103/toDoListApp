@@ -44,6 +44,7 @@
       <!--List body START-->
       <div
         id="selected-list-body"
+        data-list-display-container
         class="col-lg-7 d-flex-column justify-content-center"
       >
         <div id="selected-list" ; class="w-75">
@@ -51,48 +52,15 @@
             id="list-header"
             class="d-flex justify-content-between border p-3"
           >
-            <div id="list-name">List Name</div>
-            <div id="task-remaining-count">Tasks Remaining:</div>
+            <div id="list-name" data-list-title>List Name</div>
+            <div id="task-remaining-count" data-task-count>Tasks Remaining:</div>
           </div>
-          <ul id="tasks-list" class="list-unstyled m-0">
-            <li class="px-2 py-3 task">
-              <input
-                for="task1"
-                type="checkbox"
-                id="task1"
-                value="task1"
-                name="task1"
-              /><label for="task1"
-                ><span class="custom-checkbox"></span>Task1</label
-              >
-            </li>
-            <li class="px-2 py-3 task">
-              <input
-                for="task2"
-                type="checkbox"
-                id="task2"
-                value="task2"
-                name="task2"
-              /><label for="task2"
-                ><span class="custom-checkbox"></span>Task2</label
-              >
-            </li>
-            <li class="px-2 py-3 task">
-              <input
-                for="task3"
-                type="checkbox"
-                id="task3"
-                value="task3"
-                name="task3"
-              /><label for="task3"
-                ><span class="custom-checkbox"></span>Task3</label
-              >
-            </li>
-          </ul>
+          <ul id="tasks-list" data-tasks class="list-unstyled m-0"></ul>
           <div id="add-new-task" class="px-2 py-3">
-            <form action="">
+            <form action="" data-new-task-form>
               <button class="btn" id="new-task-button">+</button>
               <input
+                data-new-task-input
                 type="text"
                 id="new-task-name"
                 placeholder="enter new task"
@@ -107,7 +75,14 @@
         </div>
       </div>
     </div>
+    <template id='task-template'>
+      <li class="px-2 py-3 task">
+        <input type="checkbox"/> 
+        <label><span class="custom-checkbox"></span></label>
+      </li>
+    </template>
     <!--List body END-->
+
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
