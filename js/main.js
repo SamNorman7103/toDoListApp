@@ -112,8 +112,8 @@ function render() {
     renderLists();
 
     const selectedList = lists.find(list => list.id === selectedListId)
-    /*console.log("selected list ID = " + selectedListId) null
-    /*console.log("selectedList is " + selectedList) undefined
+    //console.log("selected list ID = " + selectedListId) null
+    //console.log("selectedList is " + selectedList) undefined
     if(selectedListId == null){
       listDisplayContainer.style.display = 'none';
     }else{
