@@ -9,12 +9,20 @@ const taskContainer = document.querySelector('[data-tasks]');
 const taskTemplate = document.getElementById('task-template');
 const newTaskForm = document.querySelector('[data-new-task-form]');
 const newTaskInput = document.querySelector('[data-new-task-input]');
+const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]')
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists';
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
 
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
+
+
+clearCompleteTasksButton.addEventListener('click', e => {
+    const selectedList = lists.find(list => list.id === selectedListId);
+    selectedList.tasks = selectedList.tasks.filter(task => !task.complete);
+    saveAndRender();
+})
 
 listsContainer.addEventListener('click', e => {
     if(e.target.tagName.toLowerCase() === 'li'){
@@ -25,10 +33,10 @@ listsContainer.addEventListener('click', e => {
 
 taskContainer.addEventListener('click', e =>{
     if(e.target.tagName.toLowerCase() === 'input'){
-        const selectedList = lists.find(list => list.id === selectedListId)
-        const selectedTask = selectedList.tasks.find(task => task.id === e.target.id)
-        selectedTask.complete = e.target.checked
-        save()
+        const selectedList = lists.find(list => list.id === selectedListId);
+        const selectedTask = selectedList.tasks.find(task => task.id === e.target.id);
+        selectedTask.complete = e.target.checked;
+        save();
         renderTaskCount(selectedList);
     }
 })
@@ -104,8 +112,8 @@ function render() {
     renderLists();
 
     const selectedList = lists.find(list => list.id === selectedListId)
-    console.log("selected list ID = " + selectedListId)
-    console.log("selectedList is " + selectedList)
+    /*console.log("selected list ID = " + selectedListId) null
+    /*console.log("selectedList is " + selectedList) undefined
     if(selectedListId == null){
       listDisplayContainer.style.display = 'none';
     }else{
