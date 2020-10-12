@@ -16,7 +16,7 @@ const LOCAL_STORAGE_LIST_KEY = 'task.lists';
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
 
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
-let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
+let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY) || null;
 
 
 clearCompleteTasksButton.addEventListener('click', e => {
@@ -35,7 +35,6 @@ listsContainer.addEventListener('click', e => {
 taskContainer.addEventListener('click', e =>{
     if(e.target.tagName.toLowerCase() === 'input'){
         const selectedList = lists.find(list => list.id === selectedListId);
-        console.log("selected");
         const selectedTask = selectedList.tasks.find(task => task.id === e.target.id);
         selectedTask.complete = e.target.checked;
         save();
@@ -118,10 +117,8 @@ function render() {
     clearElement(listsContainer);   
     renderLists();
 
-    const selectedList = lists.find(list => list.id === selectedListId)
-    //console.log("selected list ID = " + selectedListId) null
-    //console.log("selectedList is " + selectedList) undefined
-    if(selectedListId == null){
+    const selectedList = lists.find(list => list.id === selectedListId);
+    if(!selectedList){
       listDisplayContainer.style.display = 'none';
     }else{
         listDisplayContainer.style.display = '';
