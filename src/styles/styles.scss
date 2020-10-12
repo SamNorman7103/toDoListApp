@@ -119,6 +119,16 @@ body {
   }
 }
 
+.del-task-btn{
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  transform: scale(.8);
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
 .option{
     background-color: transparent;
     border: none;

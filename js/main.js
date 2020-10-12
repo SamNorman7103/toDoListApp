@@ -10,6 +10,7 @@ const taskTemplate = document.getElementById('task-template');
 const newTaskForm = document.querySelector('[data-new-task-form]');
 const newTaskInput = document.querySelector('[data-new-task-input]');
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]')
+const deleteTaskButton = document.querySelector('[data-delete-task-button]');
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists';
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
@@ -34,10 +35,16 @@ listsContainer.addEventListener('click', e => {
 taskContainer.addEventListener('click', e =>{
     if(e.target.tagName.toLowerCase() === 'input'){
         const selectedList = lists.find(list => list.id === selectedListId);
+        console.log("selected");
         const selectedTask = selectedList.tasks.find(task => task.id === e.target.id);
         selectedTask.complete = e.target.checked;
         save();
         renderTaskCount(selectedList);
+    }
+    if(e.target.tagName.toLowerCase() === 'button'){
+        const selectedList = lists.find(list => list.id === selectedListId);
+        selectedList.tasks = selectedList.tasks.filter(task => task.id !== e.target.id);
+        saveAndRender();
     }
 })
 
@@ -128,9 +135,11 @@ function render() {
 function renderTasks(selectedList){
     selectedList.tasks.forEach(task => {
     const taskElement = document.importNode(taskTemplate.content,true);
-    const checkbox = taskElement.querySelector('input')
+    const checkbox = taskElement.querySelector('input');
+    const deleteButton = taskElement.querySelector('button');
     checkbox.id = task.id;
     checkbox.checked = task.complete;
+    deleteButton.id = task.id;
     const label = taskElement.querySelector('label');
     label.htmlFor = task.id;
     label.append(task.name);

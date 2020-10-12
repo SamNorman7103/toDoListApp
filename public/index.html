@@ -20,7 +20,7 @@
         id="lists-body"
         class="col-lg-5"
       >
-        My Lists - DONT FORGET TO ADD THAT USERS SHOULD BE ABLE TO EDIT TASKS AND DELETE 
+        My Lists 
         <ul id="list-of-lists" data-lists class="mb-0 pr-3 w-75 border border-left-0 border-top-0 border-bottom-0">
           <!-- <li class="active-list px-2 list">List1</li>
           <li class="px-2 list">List2</li>
@@ -55,7 +55,7 @@
             <div id="list-name" data-list-title>List Name</div>
             <div id="task-remaining-count" data-task-count>Tasks Remaining:</div>
           </div>
-          <ul id="tasks-list" data-tasks class="list-unstyled m-0"></ul>
+          <ul id="tasks-list" data-tasks class="container list-unstyled m-0 p-0"></ul>
           <div id="add-new-task" class="px-2 py-3">
             <form action="" data-new-task-form>
               <button class="btn" id="new-task-button">+</button>
@@ -75,11 +75,16 @@
         </div>
       </div>
     </div>
-    <template id='task-template'>
-      <li class="px-2 py-3 task">
-        <input type="checkbox"/> 
-        <label><span class="custom-checkbox"></span></label>
+    <template class="row container"id='task-template'>
+      <li class = "container task p-0">
+        <div class="row py-3">
+        <input class="col-1"type="checkbox"/> 
+        <label class="col-9"><span class="custom-checkbox"></span></label>
+        <button data-delete-task-button class="col-1 del-task-btn p-0 m-0">x</button>
+        </div>
+        
       </li>
+      
     </template>
     <!--List body END-->
 
