@@ -129,6 +129,10 @@ function render() {
     }
 }
 
+function editTaskName(){
+    
+}
+
 function renderTasks(selectedList){
     selectedList.tasks.forEach(task => {
     const taskElement = document.importNode(taskTemplate.content,true);
