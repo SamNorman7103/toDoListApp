@@ -61,7 +61,7 @@ newTaskForm.addEventListener('submit', e => {
     e.preventDefault();//prevents reload of page
     const taskName = newTaskInput.value;
     if (taskName == null || taskName === '') return;
-    const task = createList(taskName);
+    const task = createTask(taskName);
     newTaskInput.value = null;
     const selectedList = lists.find(list => list.id === selectedListId);
     selectedList.tasks.push(task);
