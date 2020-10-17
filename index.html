@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="vieport" content="width-device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
     <title>To Do List</title>
     <link
       rel="stylesheet"
@@ -18,15 +18,12 @@
     <div id="content" class="row">
       <div
         id="lists-body"
-        class="col-lg-5"
+        class="col-lg-3"
       >
         My Lists 
         <ul id="list-of-lists" data-lists class="mb-0 pr-3 w-75 border border-left-0 border-top-0 border-bottom-0">
-          <!-- <li class="active-list px-2 list">List1</li>
-          <li class="px-2 list">List2</li>
-          <li class="px-2 list">List3</li> -->
         </ul>
-        <div id="create-new-list" class = "w-75 border border-left-0 border-top-0 border-bottom-0">
+        <div id="create-new-list" class = "w-75">
           <form action="" data-new-list-form>
             <input
               type="text"
@@ -74,19 +71,23 @@
           <button data-delete-list-button class="option">Delete list</button>
         </div>
       </div>
+      <div style="display: none;" class="col-2" data-task-rename-container>
+        <input type="text" placeholder="Rename Task to..."/>
+        <button>Close</button>
+      </div>
     </div>
     <template class="row container"id='task-template'>
       <li class = "container task p-0">
         <div class="row py-3">
-        <input class="col-1"type="checkbox"/> 
-        <label class="col-9"><span class="custom-checkbox"></span></label>
-        <!--<button class="col-2">Edit</button>-->  
-        <button data-delete-task-button class="col-1 del-task-btn p-0 m-0">x</button>
+          <input class="col-1"type="checkbox"/> 
+          <label class="col-7"><span class="custom-checkbox"></span></label>
+          <img src="./src/images/tiny-pen-512.png" data-edit-task-button alt="" class="col-2 edit">
+          <button data-delete-task-button class="col-1 del-task-btn p-0 m-0">x</button>
         </div>
-      </li>
-      
+      </li> 
     </template>
     <!--List body END-->
+    
 
 
     <script
@@ -106,3 +107,4 @@
     ></script>
   </body>
 </html>
+

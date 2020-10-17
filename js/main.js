@@ -7,6 +7,7 @@ const listTitleElement = document.querySelector('[data-list-title]');
 const taskCountElement = document.querySelector('[data-task-count]');
 const taskContainer = document.querySelector('[data-tasks]');
 const taskTemplate = document.getElementById('task-template');
+const taskRenameContainer = document.querySelector('[data-task-rename-container]')
 const newTaskForm = document.querySelector('[data-new-task-form]');
 const newTaskInput = document.querySelector('[data-new-task-input]');
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]')
@@ -23,6 +24,24 @@ clearCompleteTasksButton.addEventListener('click', e => {
     const selectedList = lists.find(list => list.id === selectedListId);
     selectedList.tasks = selectedList.tasks.filter(task => !task.complete);
     saveAndRender();
+})
+
+taskRenameContainer.addEventListener('click', e=>{
+    const container = taskRenameContainer;
+    const selectedList = lists.find(list => list.id === selectedListId);
+    const selectedTask = selectedList.tasks.find(task => task.id === container.id);
+    const renameInput = taskRenameContainer.querySelector('input');
+    if(e.target.tagName.toLowerCase() === 'button'){
+        if (!renameInput.value){
+            container.style = "display: none;"
+            return; 
+        } if(renameInput.value){
+            selectedTask.name = renameInput.value;
+            container.style = "display: none;"
+            renameInput.value = null;
+            saveAndRender();
+        }
+    }
 })
 
 listsContainer.addEventListener('click', e => {
@@ -44,6 +63,12 @@ taskContainer.addEventListener('click', e =>{
         const selectedList = lists.find(list => list.id === selectedListId);
         selectedList.tasks = selectedList.tasks.filter(task => task.id !== e.target.id);
         saveAndRender();
+    }
+    if(e.target.tagName.toLowerCase() === 'img'){
+        const selectedList = lists.find(list => list.id === selectedListId);
+        const editTaskButton = selectedList.tasks.find(task => task.id === e.target.id);
+        taskRenameContainer.id = editTaskButton.id;
+        taskRenameContainer.style = "display: block;"
     }
 })
 
@@ -129,18 +154,16 @@ function render() {
     }
 }
 
-function editTaskName(){
-    
-}
-
 function renderTasks(selectedList){
     selectedList.tasks.forEach(task => {
     const taskElement = document.importNode(taskTemplate.content,true);
     const checkbox = taskElement.querySelector('input');
     const deleteButton = taskElement.querySelector('button');
+    const editButton = taskElement.querySelector('img');
     checkbox.id = task.id;
     checkbox.checked = task.complete;
     deleteButton.id = task.id;
+    editButton.id = task.id;
     const label = taskElement.querySelector('label');
     label.htmlFor = task.id;
     label.append(task.name);
